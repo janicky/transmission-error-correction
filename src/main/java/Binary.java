@@ -1,16 +1,16 @@
 public class Binary {
-    private boolean[] word;
-
-    public Binary(char word) {
-        this.word = new boolean[8];
+    public static boolean[] getBooleanArray(char input) {
+        boolean[] word = new boolean[8];
 
         int i = 0;
-        for (char b : Integer.toBinaryString(word).toCharArray()) {
-            this.word[i++] = (b == '1' ? true : false);
+        for (char b : Integer.toBinaryString(input).toCharArray()) {
+            word[i++] = (b == '1' ? true : false);
         }
+
+        return word;
     }
 
-    public boolean[] getBooleanArray() {
-        return this.word;
+    public static int toInt(boolean value) {
+        return value ? 1 : 0;
     }
 }
