@@ -12,9 +12,10 @@ public class Binary {
     }
 
     public static int toInt(boolean[] word) {
-        int sum = 0, i = 0;
-        for (boolean b : word) {
-            sum += Math.pow(2, i++);
+        int sum = 0;
+        int j = 0;
+        for (int i = word.length - 1; i >= 0; i--) {
+            sum += Binary.toInt(word[i]) * Math.pow(2, j++);
         }
         return sum;
     }
