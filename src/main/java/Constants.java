@@ -11,4 +11,6 @@ public class Constants {
             {true, true, true, true, false, false, false, false, false, false, false, false, false, false, true, false},
             {true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, true}
     };
+//    Word length
+    public static final int LENGTH = 8;
 }
