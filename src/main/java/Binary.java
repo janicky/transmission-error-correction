@@ -14,7 +14,7 @@ public class Binary {
     public static int toInt(boolean[] word) {
         int sum = 0, i = 0;
         for (boolean b : word) {
-            sum += Math.pow(2, i);
+            sum += Math.pow(2, i++);
         }
         return sum;
     }
