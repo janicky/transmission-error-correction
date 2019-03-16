@@ -9,4 +9,15 @@ class BinaryTest {
         assertEquals(2, Binary.toInt(new boolean[] { true, false }));
         assertEquals(4, Binary.toInt(new boolean[] { true, false, false }));
     }
+
+    @Test
+    void toBooleanArray() {
+        boolean[] expected = { false, true, false, false, false, false, false, true };
+        boolean[] result = Binary.toBooleanArray('A');
+
+        assertEquals(expected.length, result.length);
+        for (int i = 0; i < result.length; i++) {
+            assertEquals(expected[i], result[i]);
+        }
+    }
 }

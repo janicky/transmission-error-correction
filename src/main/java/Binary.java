@@ -25,11 +25,13 @@ public class Binary {
     }
 
     public static boolean[] toBooleanArray(char input) {
-        boolean[] word = new boolean[8];
+        boolean[] word = new boolean[Constants.LENGTH];
 
         int i = 0;
-        for (char b : Integer.toBinaryString(input).toCharArray()) {
-            word[i++] = Binary.toBoolean(b);
+        String binaryString = Integer.toBinaryString(input);
+        int shift = Constants.LENGTH - binaryString.length();
+        for (char b : binaryString.toCharArray()) {
+            word[shift + i++] = Binary.toBoolean(b);
         }
         return word;
     }
