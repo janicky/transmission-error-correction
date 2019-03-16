@@ -39,4 +39,12 @@ public class Binary {
         }
         return word;
     }
+
+    public static int sumBinaryRow(boolean[] word, int row) {
+        int sum = 0;
+        for (int i = 0; i < Constants.LENGTH; i++) {
+            sum += Binary.toInt(word[i] && Constants.MATRIX[row][i]);
+        }
+        return sum;
+    }
 }
