@@ -14,7 +14,14 @@ public class Decoder {
         }
 
         hasSingleError = this.singleErrorOccurred(modulo);
-        return 'x';
+        if (hasSingleError) {
+            correctSingleError(word);
+        }
+
+        boolean[] result = new boolean[Constants.LENGTH];
+        System.arraycopy(word, 0, result, 0, Constants.LENGTH);
+
+        return (char) Binary.toInt(result);
     }
 
     private boolean singleErrorOccurred(boolean[] modulo) {
@@ -31,6 +38,12 @@ public class Decoder {
             }
         }
         return false;
+    }
+
+    private void correctSingleError(boolean[] word) {
+        if (hasSingleError) {
+            word[firstErrorPosition] = !word[firstErrorPosition];
+        }
     }
 
     public boolean hasSingleError() {

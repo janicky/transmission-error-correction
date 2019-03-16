@@ -19,7 +19,8 @@ class DecoderTest {
     void singleError() {
         boolean[] encoded = encoder.encode('A');
         encoded[8] = !encoded[8];
-        decoder.decode(encoded);
+        char result = decoder.decode(encoded);
         assertEquals(true, decoder.hasSingleError());
+        assertEquals('A', result);
     }
 }
