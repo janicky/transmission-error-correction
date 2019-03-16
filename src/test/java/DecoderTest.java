@@ -6,12 +6,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class DecoderTest {
 
     private Encoder encoder = new Encoder();
+    private Decoder decoder = new Decoder();
 
     @Test
-    void messageNotDamaged() {
-        Decoder decoder = new Decoder();
+    void noErrors() {
         boolean[] encoded = encoder.encode('A');
         decoder.decode(encoded);
         assertEquals(false, decoder.hasSingleError());
+    }
+
+    @Test
+    void singleError() {
+        boolean[] encoded = encoder.encode('A');
+        encoded[8] = !encoded[8];
+        decoder.decode(encoded);
+        assertEquals(true, decoder.hasSingleError());
     }
 }

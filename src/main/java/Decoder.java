@@ -1,10 +1,12 @@
 
 public class Decoder {
 
-    private int firstErrorPosition = -1;
-    private boolean hasSingleError = false;
+    private int firstErrorPosition;
+    private boolean hasSingleError;
 
     public char decode(boolean[] word) {
+        clearVariables();
+
         boolean[] modulo = new boolean[Constants.LENGTH];
 
         for (int i = 0; i < Constants.LENGTH; i++) {
@@ -33,5 +35,10 @@ public class Decoder {
 
     public boolean hasSingleError() {
         return hasSingleError;
+    }
+
+    private void clearVariables() {
+        firstErrorPosition = -1;
+        hasSingleError = false;
     }
 }
