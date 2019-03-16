@@ -14,6 +14,6 @@ class EncoderTest {
     @Test
     void encodingTest() {
         boolean[] encoded = this.encoder.encode('A');
-        System.out.println(Binary.toString(encoded));
+        assertEquals("0100000111010110", Binary.toString(encoded));
     }
 }
