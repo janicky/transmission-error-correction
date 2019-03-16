@@ -40,9 +40,9 @@ public class Binary {
         return word;
     }
 
-    public static int sumBinaryRow(boolean[] word, int row) {
+    public static int sumBinaryRow(boolean[] word, int row, int length) {
         int sum = 0;
-        for (int i = 0; i < Constants.LENGTH; i++) {
+        for (int i = 0; i < length; i++) {
             sum += Binary.toInt(word[i] && Constants.MATRIX[row][i]);
         }
         return sum;
