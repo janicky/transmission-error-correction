@@ -21,7 +21,11 @@ public class Binary {
     }
 
     public static boolean toBoolean(int value) {
-        return value == 1 ? true : false;
+        return value == 1;
+    }
+
+    public static boolean toBoolean(char value) {
+        return value == '1';
     }
 
     public static boolean[] toBooleanArray(char input) {
