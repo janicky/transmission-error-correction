@@ -2,16 +2,17 @@
 public class Decoder {
 
     private int firstErrorPosition = -1;
+    private boolean hasSingleError = false;
 
-    public String decode(boolean[] word) {
-        boolean[][] matrix = Constants.MATRIX;
+    public char decode(boolean[] word) {
         boolean[] modulo = new boolean[Constants.LENGTH];
 
         for (int i = 0; i < Constants.LENGTH; i++) {
-            modulo[i] = Binary.toBoolean(Binary.sumBinaryRow(word, i) % 2);
+            modulo[i] = Binary.toBoolean(Binary.sumBinaryRow(word, i, Constants.MATRIX[0].length) % 2);
         }
 
-        return "to do";
+        hasSingleError = this.singleErrorOccurred(modulo);
+        return 'x';
     }
 
     private boolean singleErrorOccurred(boolean[] modulo) {
@@ -23,10 +24,14 @@ public class Decoder {
                 }
             }
             if (same) {
-                this.firstErrorPosition = i;
+                firstErrorPosition = i;
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean hasSingleError() {
+        return hasSingleError;
     }
 }
