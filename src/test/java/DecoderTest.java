@@ -23,4 +23,15 @@ class DecoderTest {
         assertEquals(true, decoder.hasSingleError());
         assertEquals('A', result);
     }
+
+    @Test
+    void doubleError() {
+        boolean[] encoded = encoder.encode('A');
+        encoded[6] = !encoded[6];
+        encoded[11] = !encoded[11];
+        char result = decoder.decode(encoded);
+        assertEquals(false, decoder.hasSingleError());
+        assertEquals(true, decoder.hasDoubleError());
+        assertEquals('A', result);
+    }
 }
