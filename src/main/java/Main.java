@@ -6,12 +6,24 @@ public class Main {
         File transitional = new File("data/transitional.txt");
         File output = new File("data/output.txt");
 
-        System.out.println("Input: " + input.getAbsolutePath());
+        System.out.println("\nInput: " + input.getAbsolutePath());
         System.out.println("Transitional: " + transitional.getAbsolutePath());
-        System.out.println("Output: " + output.getAbsolutePath());
+
+        System.out.println("\nNow you can modify transitional file by adding some errors.");
+        System.out.println("Please enter any key to continue...");
 
         encodeInput(input, transitional);
+
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            br.read();
+        } catch (Exception e) {
+//            ...
+        }
+
         decodeTransitional(transitional, output);
+
+        System.out.println("Output: " + output.getAbsolutePath());
     }
 
     public static void encodeInput(File input, File transitional) {
