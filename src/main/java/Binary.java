@@ -40,6 +40,17 @@ public class Binary {
         return word;
     }
 
+    public static boolean[] toBooleanArray(String input) {
+        boolean[] output = new boolean[input.length()];
+        char[] chars = input.toCharArray();
+
+        for (int i = 0; i < input.length(); i++) {
+            output[i] = (chars[i] == '1' ? true : false);
+        }
+
+        return output;
+    }
+
     public static int sumBinaryRow(boolean[] word, int row, int length) {
         int sum = 0;
         for (int i = 0; i < length; i++) {
