@@ -9,10 +9,10 @@ public class Main {
         System.out.println("\nInput: " + input.getAbsolutePath());
         System.out.println("Transitional: " + transitional.getAbsolutePath());
 
+        encodeInput(input, transitional);
+
         System.out.println("\nNow you can modify transitional file by adding some errors.");
         System.out.println("Please enter any key to continue...");
-
-        encodeInput(input, transitional);
 
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
